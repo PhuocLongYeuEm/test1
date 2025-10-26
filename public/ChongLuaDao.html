@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="vi" class="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phòng Ngừa Lừa Đảo Online</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* ===== Layout ảnh bay ra ngoài ===== */
+      .prevention-card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        margin: 4rem auto;
+        max-width: 1100px;
+        background-color: var(--card);
+        color: var(--foreground);
+        border-radius: 1rem;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        overflow: visible;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      .prevention-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .prevention-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+      }
+
+      .card-content {
+        padding: 3rem 2rem;
+        max-width: 50%;
+        z-index: 2;
+      }
+
+      .card-content h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--foreground);
+        margin-bottom: 0.75rem;
+      }
+
+      .card-content p {
+        color: var(--muted-foreground);
+        line-height: 1.6;
+
+      }
+
+		.card-image {
+			flex: 0 0 45%;
+			margin: 0 20px;
+			border: 4px solid var(--primary);
+			border-radius: 1rem;
+			overflow: hidden;
+		}
+
+
+      .card-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 0.75rem;
+      }
+
+
+      /* Hiển thị dạng hàng ngang trên PC */
+      @media (min-width: 768px) {
+        .prevention-card {
+          flex-direction: row;
+          align-items: center;
+          min-height: 340px;
+        }
+
+        .prevention-card:nth-child(even) {
+          flex-direction: row-reverse;
+        }
+
+        .card-content {
+          padding: 2.5rem 3rem;
+
+        }
+      }
+
+      @media (max-width: 767px) {
+        .prevention-card {
+          flex-direction: column;
+        }
+
+        .card-image {
+          position: relative;
+          width: 100%;
+          left: 0;
+          right: 0;
+          transform: none;
+          margin-bottom: 1rem;
+        }
+
+        .card-content {
+          max-width: 100%;
+          text-align: center;
+        }
+      }
+	  	main {
+			padding-top: 140px !important; /* Đẩy nội dung xuống dưới header */
+		}
+		h3 {
+			font-size: 42px !important;
+		}
+    </style>
+  </head>
+
+  <body>
+    <nav
+      class="fixed top-0 left-0 right-0 z-50 nav-hea border-b border-border bg-background/90 backdrop-blur"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="flex items-center h-16 justify-between">
+          <div class="flex items-center gap-2">
+            <img src="lolicon.png" class="w-16 h-16" />
+            <span class="text-xl font-bold btn-outline">Lock Child Keeper</span>
+          </div>
+          <div class="hidden md:flex items-center gap-6">
+            <button id="homeBtn" class="text-foreground transition-colors btn-ol">Trang chủ</button>
+            <button id="protectBtn" class="text-foreground transition-colors btn-ol">Phòng Ngừa</button>
+            <button id="loginBtn" class="text-foreground transition-colors btn-ol">Đăng nhập</button>
+            <button id="registerBtn" class="text-foreground transition-colors btn-ol">Đăng ký</button>
+            <button id="themeToggle" class="theme-toggle" title="Chuyển chế độ sáng/tối">🌙</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="pt-40 bg-background">
+      <section class="text-center mb-12 pt-28">
+        <h1 class="text-3xl md:text-4xl font-bold text-primary mb-4">
+          Kỹ Năng Phòng Chóng Và Xử Lí Tình Huống
+        </h1>
+        <p class="text-muted-foreground text-lg max-w-3xl mx-auto">
+          Cảnh giác – Chủ động – Bảo vệ bản thân và cộng đồng trước các hình thức lừa đảo trực tuyến.
+        </p>
+      </section>
+
+      <!-- ===== Cards ===== -->
+      <div class="prevention-card btn-ol">
+        <div class="card-image">
+          <img src="calm.png" alt="Giữ vững tâm lý" />
+        </div>
+        <div class="card-content">
+          <h3>1. Giữ bình tĩnh, không hoảng loạn</h3>
+          <p>
+			Đọc kĩ tin nhắn (tình huống), không phản ứng vội vàng
+			Đừng vội chuyển tiền, gửi thông tin cá nhân, hay làm theo yêu cầu.
+			Nếu nghi ngờ, dừng lại và cân nhắc trước mọi bước đi
+          </p>
+        </div>
+      </div>
+
+      <div class="prevention-card btn-ol">
+        <div class="card-image">
+          <img src="Uncall.png" alt="Kiểm chứng thông tin" />
+        </div>
+        <div class="card-content">
+          <h3>2. Ngừng tương tác ngay</h3>
+          <p>
+			Chấm dứt mọi liên lạc: dừng nhắn tin, không gọi lại và tuyệt đối không nhấp vào đường link lạ.
+			Nếu nhận cuộc gọi video hoặc âm thanh bất ngờ, hãy tắt ngay lập tức để bảo vệ hình ảnh và giọng nói của mình.
+          </p>
+        </div>
+      </div>
+
+
+      <div class="prevention-card btn-ol">
+        <div class="card-image">
+          <img src="Savr.png" alt="Kiểm chứng thông tin" />
+        </div>
+        <div class="card-content">
+          <h3>3. Lưu giữ bằng chứng</h3>
+          <p>
+			Bắt trọn bằng ảnh: chụp màn hình mọi đoạn tin, số gọi và trang cá nhân khả nghi.
+			Lưu nhật ký sự kiện: ghi cẩn thận thời gian, nội dung và cách họ liên hệ.
+			Sao chép an toàn: gửi bản sao cho phụ huynh hoặc lưu trữ trên cloud để tránh mất dữ liệu.
+          </p>
+        </div>
+      </div>
+
+      <div class="prevention-card btn-ol">
+        <div class="card-image">
+          <img src="warning.png" alt="Kiểm chứng thông tin" />
+        </div>
+        <div class="card-content">
+          <h3>4. Kiểm chứng thông tin</h3>
+          <p>
+			Khi có người lạ giả danh “người thân gặp nạn”, hãy bình tĩnh gọi trực tiếp cho người đó hoặc liên hệ với người thân khác để xác nhận.
+			Tra cứu tại nguồn chính thống như trường học, cơ quan hoặc tổ chức thật để kiểm tra độ xác thực của thông tin.
+          </p>
+        </div>
+      </div>
+
+      <div class="prevention-card btn-ol">
+        <div class="card-image">
+          <img src="whap.png" alt="Bảo mật tài khoản" />
+        </div>
+        <div class="card-content">
+          <h3>5. Báo ngay cho người đáng tin cậy</h3>
+          <p>
+			Học sinh: Khi gặp tình huống bất thường, hãy lập tức kể cho cha mẹ hoặc thầy cô biết để được giúp đỡ kịp thời.
+			Phụ huynh/người lớn: Báo ngay cho cơ quan chức năng, công an địa phương hoặc Tổng đài 111 – đường dây nóng bảo vệ trẻ em.
+          </p>
+        </div>
+      </div>
+
+      <div class="prevention-card btn-ol">
+        <div class="card-image">
+          <img src="knp.png" alt="Báo cáo hành vi" />
+        </div>
+        <div class="card-content">
+          <h3>6. Không đi gặp mặt riêng</h3>
+          <p>
+			Tuyệt đối tránh việc gặp người lạ ở nơi vắng vẻ hoặc đi một mình, dù họ tỏ ra thân thiện hay đáng tin cậy.
+			Nếu buộc phải gặp (liên quan học tập hoặc công việc), hãy đi cùng người thân và chọn địa điểm công cộng, đông người, có camera an ninh.
+          </p>
+        </div>
+      </div>
+
+      <div class="prevention-card btn-ol">
+        <div class="card-image">
+          <img src="security.png" alt="Báo cáo hành vi" />
+        </div>
+        <div class="card-content">
+          <h3>7. Chủ động bảo vệ thiết bị</h3>
+          <p>
+			Tăng lớp an toàn: đặt mật khẩu mạnh, bật xác thực hai bước cho mọi tài khoản mạng xã hội.
+			Giữ thiết bị “sạch”: không cài ứng dụng lạ, không chia sẻ mã OTP hay mật khẩu cho bất kỳ ai, dù họ tự xưng là nhân viên hỗ trợ.
+          </p>
+        </div>
+      </div>
+
+      <div class="prevention-card btn-ol">
+        <div class="card-image">
+          <img src="Speakup.png" alt="Báo cáo hành vi" />
+        </div>
+        <div class="card-content">
+          <h3>8. Báo cáo và ngăn chặn</h3>
+          <p>
+			Chủ động phản ứng: dùng tính năng báo cáo hoặc chặn trên mạng xã hội để ngăn tài khoản có dấu hiệu lừa đảo.
+			Gặp hành vi nghiêm trọng như tống tiền hay đe dọa, hãy báo ngay cho cơ quan chức năng để được hỗ trợ và bảo vệ kịp thời.
+          </p>
+        </div>
+      </div>
+      <!-- Source hay -->
+	   <a href="https://tuoitrethudo.vn/khong-mot-minh-khoi-dong-chien-dich-bao-ve-hoc-sinh-truc-tuyen-291377.html"></a>
+	   <div
+        class="shadcn-card rounded-xl border text-card-foreground shadow-sm mt-16 p-6 md:p-8 bg-destructive/5 border-destructive/20 max-w-4xl mx-auto"
+      >
+        <div class="text-center">
+          <h4
+            class="text-lg font-semibold text-primary mb-2 flex items-center justify-center gap-2"
+          >
+            Một số thông tin thú vị về đường dây nóng hỗ trợ trẻ em
+          </h4>
+          <p class="text-muted-foreground leading-relaxed mb-4">
+            Tìm hiểu tại:
+          </p>
+          <div
+            class="flex flex-wrap justify-center gap-4 text-sm text-primary font-semibold"
+          >
+            <span><a href="https://tuoitrethudo.vn/khong-mot-minh-khoi-dong-chien-dich-bao-ve-hoc-sinh-truc-tuyen-291377.html">Tuổi trẻ thủ đô</a></span>
+            <span><a href="https://www.facebook.com/share/p/14LtpRDneW8/?mibextid=wwXIfr">Facebook</a></span>
+            <span><a href="https://dantri.com.vn/giao-duc/3-cach-giup-hoc-sinh-sinh-vien-day-lui-bat-coc-truc-tuyen-20251011183510248.htm">Dân Trí</a></span>
+          </div>
+        </div>
+      </div>
+	  <br>
+      <!-- Liên hệ khẩn cấp -->
+      <div
+        class="shadcn-card rounded-xl border text-card-foreground shadow-sm mt-16 p-6 md:p-8 bg-destructive/5 border-destructive/20 max-w-4xl mx-auto"
+      >
+        <div class="text-center">
+          <h4
+            class="text-lg font-semibold text-primary mb-2 flex items-center justify-center gap-2"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-triangle-alert w-5 h-5 text-destructive"
+            >
+              <path
+                d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"
+              ></path>
+              <path d="M12 9v4"></path>
+              <path d="M12 17h.01"></path>
+            </svg>
+            Liên Hệ Khẩn Cấp
+          </h4>
+          <p class="text-muted-foreground leading-relaxed mb-4">
+            Nếu phát hiện trường hợp nguy hiểm, vui lòng liên hệ ngay:
+          </p>
+          <div
+            class="flex flex-wrap justify-center gap-4 text-sm text-primary font-semibold"
+          >
+            <span>Công an: 113</span>
+            <span class="text-muted-foreground">|</span>
+            <span>Tổng đài trẻ em: 111</span>
+            <span class="text-muted-foreground">|</span>
+            <span>Nhà trường: 0274.374.8900</span>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="bg-card border-t border-border py-12 mt-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h4 class="text-lg font-semibold mb-2 text-primary">
+          Tuyên Truyền Phòng Ngừa Lừa Đảo Online
+        </h4>
+        <p class="text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+          Chung tay xây dựng môi trường mạng an toàn – Nhận biết sớm, phản ứng đúng
+          và bảo vệ bản thân trước mọi hình thức lừa đảo.
+        </p>
+        <p class="text-sm text-muted-foreground mt-6">
+          © 2025 Phòng Ngừa Lừa Đảo Online. Không thu thập dữ liệu người dùng.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Nút chuyển trang
+      document.getElementById("homeBtn").addEventListener("click", () => {
+        window.location.href = "web_split.html";
+      });
+      document.getElementById("protectBtn").addEventListener("click", () => {
+        window.location.href = "ChongLuaDao.html";
+      });
+      document.getElementById("registerBtn").addEventListener("click", () => {
+        window.location.href = "DangKy.html";
+      });
+      document.getElementById("loginBtn").addEventListener("click", () => {
+        window.location.href = "DangNhap.html";
+      });
+
+      // Hiệu ứng xuất hiện khi cuộn
+      const cards = document.querySelectorAll(".prevention-card");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+      cards.forEach((card) => observer.observe(card));
+    </script>
+    <script type="module" src="analyzer.js" defer></script>
+  </body>
+</html>
