@@ -13,12 +13,7 @@ const app = express();
 // ✅ Cấu hình bảo mật & CORS
 app.use(helmet());
 app.use(cors({
-  origin: [
-    "http://127.0.0.1:5500",
-    "http://localhost:5500",
-    "http://localhost:5173",
-    "*" // 👈 Thêm dòng này để cho phép truy cập từ thiết bị khác (Android)
-  ],
+  origin: "*",
   methods: ["GET", "POST"],
   allowedHeaders: ["Content-Type", "Authorization"],
 }));
@@ -70,7 +65,7 @@ const PORT = process.env.PORT || 10000;
 });
 
 // ✅ Khởi động server (cho phép truy cập từ Android qua Wi-Fi)
-app.listen(PORT, , "0.0.0.0", () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log("✅ Server đang chạy tại http://localhost:3000");
 });
 console.log(`Server running on port ${PORT}`);
